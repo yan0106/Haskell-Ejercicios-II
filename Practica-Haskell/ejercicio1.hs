@@ -11,12 +11,17 @@ borrarUltimo (x:xs) = x : borrarUltimo xs
 
 collect :: Ord k => [(k,v)] -> [(k,[v])]
 collect [] = []
-collect [(a,b)] = [(a,[b])]
-collect ((x,y):xs) = insertar x y (collect xs)
+collect [(x,y)] = [(x,[y])]
+collect ((x,y):xs) = insertar x y (collect xs) 
+-- primero agrupa el resto y luego inserta la clave y el valor en el resto agrupado
 
--- func. auxiliar
+-- func. auxiliar (cómo va a integrar la clave y el valor en una lista ya agrupada)
 insertar :: Ord k => k -> v -> [(k, [v])] -> [(k, [v])]
 insertar x y [] = [(x, [y])]
 insertar x y ((s, (lista)):resto)
     | x == s = (s, y:lista) : resto
-    | x /= s = (s, lista) : insertar x y resto
+    | otherwise = (s, lista) : insertar x y resto  -- (si x /= s)
+
+-- c) serie, que se comporta de la siguiente manera: serie [1,2,3] = [[],[1],[1,2],[1,2,3]]. Dar su tipo más general
+
+
