@@ -24,4 +24,11 @@ insertar x y ((s, (lista)):resto)
 
 -- c) serie, que se comporta de la siguiente manera: serie [1,2,3] = [[],[1],[1,2],[1,2,3]]. Dar su tipo más general
 
+serie :: [a] -> [[a]]
+serie [] = [[]]
+serie (x:xs) = [] : agregar x (serie xs)
+
+agregar :: a -> [[a]] -> [[a]]
+agregar x [] = []
+agregar x (y:ys) = (x:y) : (agregar x ys)
 
