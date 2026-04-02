@@ -32,3 +32,7 @@ agregar :: a -> [[a]] -> [[a]]
 agregar x [] = []
 agregar x (y:ys) = (x:y) : (agregar x ys)
 
+-- d) paresIguales :: Int -> Int -> Int -> Int -> Bool, toma 4 números enteros y retorna True si de dos en dos
+-- son iguales (en cualquier orden), en los demás casos retorna False. Por ejemplo: paresIguales 3 1 1 2 = False
+-- paresIguales 3 1 3 1 = True, paresIguales 3 3 1 1 = True, paresIguales 3 1 1 3 = True
+
