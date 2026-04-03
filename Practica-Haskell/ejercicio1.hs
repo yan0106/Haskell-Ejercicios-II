@@ -36,3 +36,9 @@ agregar x (y:ys) = (x:y) : (agregar x ys)
 -- son iguales (en cualquier orden), en los demás casos retorna False. Por ejemplo: paresIguales 3 1 1 2 = False
 -- paresIguales 3 1 3 1 = True, paresIguales 3 3 1 1 = True, paresIguales 3 1 1 3 = True
 
+paresIguales :: Int -> Int -> Int -> Int -> Bool
+paresIguales x y z k 
+    | x == y && z == k = True
+    | x == z && y == k = True
+    | x == k && y == z = True
+    | otherwise = False
