@@ -42,3 +42,23 @@ paresIguales x y z k
     | x == z && y == k = True
     | x == k && y == z = True
     | otherwise = False
+
+-- de forma recursiva:
+paresIguales2 :: [Int] -> Bool
+paresIguales2 [] = True
+paresIguales2 (x:xs) = if pertenece x xs 
+                       then paresIguales2 (borrar x xs) 
+                       else False
+
+
+borrar :: Int -> [Int] -> [Int]
+borrar x [] = []
+borrar x (y:ys)
+    | x == y = ys
+    | x /= y = y : borrar x ys
+
+pertenece :: Int -> [Int] -> Bool
+pertenece x [] = False
+pertenece x (y:ys)
+    | x == y = True
+    | x /= y = pertenece x ys
