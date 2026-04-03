@@ -46,10 +46,9 @@ paresIguales x y z k
 -- de forma recursiva:
 paresIguales2 :: [Int] -> Bool
 paresIguales2 [] = True
-paresIguales2 (x:xs) = if pertenece x xs 
-                       then paresIguales2 (borrar x xs) 
-                       else False
-
+paresIguales2 (x:xs)
+    | pertenece x xs = paresIguales2 (borrar x xs)
+    | otherwise      = False
 
 borrar :: Int -> [Int] -> [Int]
 borrar x [] = []
