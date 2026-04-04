@@ -28,6 +28,7 @@ serie :: [a] -> [[a]]
 serie [] = [[]]
 serie (x:xs) = [] : agregar x (serie xs)
 
+-- func. auxiliar
 agregar :: a -> [[a]] -> [[a]]
 agregar x [] = []
 agregar x (y:ys) = (x:y) : (agregar x ys)
@@ -50,12 +51,14 @@ paresIguales2 (x:xs)
     | pertenece x xs = paresIguales2 (borrar x xs)
     | otherwise      = False
 
+-- func. auxiliar
 borrar :: Int -> [Int] -> [Int]
 borrar x [] = []
 borrar x (y:ys)
     | x == y = ys
     | x /= y = y : borrar x ys
 
+-- func. auxiliar
 pertenece :: Int -> [Int] -> Bool
 pertenece x [] = False
 pertenece x (y:ys)
@@ -85,11 +88,13 @@ isosceles2 (lista)
 -- 1. Haya exactamente un par de números iguales.
 -- 2. Haya exactamente un número que sea diferente a ese par.
 
+-- func. auxiliar
 contar :: [Int] -> Int -- cuenta cuántos pares de nros. iguales hay
 contar [] = 0
 contar (x:xs) = repetidos x xs + contar xs
 -- sumo los que son iguales a 'x' y además sigo contando en el resto
 
+-- func. auxiliar
 repetidos :: Int -> [Int] -> Int -- cuenta números repetidos
 repetidos x [] = 0
 repetidos x (y:ys)
@@ -104,6 +109,7 @@ ror n [] = []
 ror n [x] = [x]
 ror n lista = restoN n lista ++ tomarN n lista
 
+-- func. auxiliar
 tomarN :: Int -> [Int] -> [Int] -- devuevo una lista con los n elementos primeros
 tomarN n [] = []
 tomarN n (x:xs)
@@ -111,6 +117,7 @@ tomarN n (x:xs)
     | n > 1 = x: tomarN (n-1) xs
     | n < 1 = []
 
+-- func. auxiliar
 restoN :: Int -> [Int] -> [Int] -- devuelvo una lista con el resto
 restoN n [] = []
 restoN n (x:xs)
