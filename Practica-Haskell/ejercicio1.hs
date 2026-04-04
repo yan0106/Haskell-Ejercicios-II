@@ -74,4 +74,25 @@ isosceles x y z
     | otherwise        = False
 -- versión estricta, si tiene 3 lados iguales no es isósceles
 
--- de forma recursiva
+-- de forma recursiva:
+isosceles2 :: [Int] -> Bool
+isosceles2 [] = False
+isosceles2 (lista)
+    | contar lista == 1 = True
+    | otherwise = False
+
+-- necesito que:
+-- 1. Haya exactamente un par de números iguales.
+-- 2. Haya exactamente un número que sea diferente a ese par.
+
+contar :: [Int] -> Int -- cuenta cuántos pares de nros. iguales hay
+contar [] = 0
+contar (x:xs) = repetidos x xs + contar xs
+-- sumo los que son iguales a 'x' y además sigo contando en el resto
+
+repetidos :: Int -> [Int] -> Int -- cuenta números repetidos
+repetidos x [] = 0
+repetidos x (y:ys)
+    | x == y = 1 + repetidos x ys
+    | x /= y = 0 + repetidos x ys
+
