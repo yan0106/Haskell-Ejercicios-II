@@ -125,6 +125,12 @@ restoN n (x:xs)
     | n > 1 = restoN (n-1) xs
     | n < 1 = []
 
--- g) upto :: Int -> Int [Int] que dado dos números enteros n y m devuelve la lista [n,n+1, n+2, ..., m]
+-- g) upto :: Int -> Int -> [Int] que dado dos números enteros n y m devuelve la lista [n,n+1, n+2, ..., m]
 -- en caso que n <= m y la lista [] en otro caso. No usar listas por comprensión. 
+
+upto :: Int -> Int -> [Int]
+upto n m 
+    | n > m = []
+    | n <= m = n: upto (n+1) m
+
 
