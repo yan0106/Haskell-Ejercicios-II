@@ -133,4 +133,23 @@ upto n m
     | n > m = []
     | n <= m = n: upto (n+1) m
 
+-- h) eco, que devuelve la cadena obtenida a partir de la cadena xs repitiendo cada elemento tantas veces como indica
+-- su posición. No usar listas por comprensión.
+-- Por ejemplo: eco "hola" = "hoolllaaaa"
 
+eco :: [Char] -> [Char]
+eco [] = []
+eco [x] = [x]
+eco lista = repetirxPosicion lista 1
+
+-- func. auxiliar
+repetirxPosicion :: [Char] -> Int -> [Char]
+repetirxPosicion [] n = []
+repetirxPosicion (x:xs) n = (repetirLetra n x) ++ (repetirxPosicion xs (n+1))
+
+-- func. auxiliar
+repetirLetra :: Int -> Char -> [Char]
+repetirLetra 0 x = []
+repetirLetra n x
+    | n >= 1 = x : repetirLetra (n-1) x
+    | n < 1 = []
