@@ -96,3 +96,24 @@ repetidos x (y:ys)
     | x == y = 1 + repetidos x ys
     | x /= y = 0 + repetidos x ys
 
+-- f) ror, que dada una lista xs y un entero n, tal que n <= length xs, rota los primeros n elementos de xs
+-- a la derecha ror 3 [1,2,3,4,5] = [4,5,1,2,3]. Definir una versión recursiva de ror, sin usar drop, take ni tail
+
+ror :: Int -> [Int] -> [Int]
+ror n [] = []
+ror n [x] = [x]
+ror n lista = restoN n lista ++ tomarN n lista
+
+tomarN :: Int -> [Int] -> [Int] -- devuevo una lista con los n elementos primeros
+tomarN n [] = []
+tomarN n (x:xs)
+    | n == 1 = [x]
+    | n > 1 = x: tomarN (n-1) xs
+    | n < 1 = []
+
+restoN :: Int -> [Int] -> [Int] -- devuelvo una lista con el resto
+restoN n [] = []
+restoN n (x:xs)
+    | n == 1 = xs
+    | n > 1 = restoN (n-1) xs
+    | n < 1 = []
