@@ -61,3 +61,17 @@ pertenece x [] = False
 pertenece x (y:ys)
     | x == y = True
     | x /= y = pertenece x ys
+
+-- e) isosceles :: Int -> Int -> Int -> Bool que dadas la longitud de los lados de un triángulo nos dice
+-- si es un triángulo isósceles
+-- dato: el triángulo Isósceles tiene 2 lados iguales
+
+isosceles :: Int -> Int -> Int -> Bool
+isosceles x y z
+    | x == y && x /= z = True
+    | x == z && x /= y = True
+    | y == z && y /= x = True
+    | otherwise        = False
+-- versión estricta, si tiene 3 lados iguales no es isósceles
+
+-- de forma recursiva
