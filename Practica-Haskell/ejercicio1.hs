@@ -140,15 +140,16 @@ upto n m
 eco :: [Char] -> [Char]
 eco [] = []
 eco [x] = [x]
-eco lista = repetirxPosicion lista 1
+eco lista = repetirxPosicion lista 1 -- para empezar la repetición de la primera letra, posicion 1 = repetir 1 vez
 
 -- func. auxiliar
 repetirxPosicion :: [Char] -> Int -> [Char]
 repetirxPosicion [] n = []
-repetirxPosicion (x:xs) n = (repetirLetra n x) ++ (repetirxPosicion xs (n+1))
+repetirxPosicion (x:xs) n = (repetirLetra n x) ++ (repetirxPosicion xs (n+1)) -- (n+1) aumenta la posición
+-- y a la vez aumenta la repetición; xs va disminuyendo hasta el caso base []
 
 -- func. auxiliar
-repetirLetra :: Int -> Char -> [Char]
+repetirLetra :: Int -> Char -> [Char] -- repite el carácter x tantas veces como indique n
 repetirLetra 0 x = []
 repetirLetra n x
     | n >= 1 = x : repetirLetra (n-1) x
