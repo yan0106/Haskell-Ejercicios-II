@@ -8,7 +8,25 @@
 -- es el producto de dos naturales consecutivos. Por ejemplo, los números [2,6,12,20,...]
 
 oblongoNumber :: [Int]
-oblongoNumber = [(x*(x+1)) | x <- [1..10]]
+oblongoNumber = [x*(x+1) | x <- [1..]] --genera una lista infinita
 
 --c) abundantes :: [Integer] que es la lista de todos los números abundantes. Un número natural n
--- se denomina abundante si es menor que la suma de sus divisores propios. Por ejemplo, 12 y 30 
+-- se denomina abundante si es menor que la suma de sus divisores propios. Por ejemplo, 12 y 30 son abundantes
+-- pero 5 y 28 no lo son. Por ejemplo, abundantes = [12,18,20,24,30,36..]
+
+abundantes :: [Integer]
+abundantes = [n | n <- [1..], n < sum (divisores n [1..n-1])]
+
+-- 'n <- [1..]', genera el n natural
+-- 'n < sum (divisores n [1..n-1])', evalúa la condición. Voy de [1..n-1] porque es el rango del número
+-- los sumo con 'sum'
+
+-- n < (sum divisores n)
+-- dp: mod n d == 0
+
+-- función aux.
+divisores :: Integer -> [Integer] -> [Integer]
+divisores n [] = []
+divisores n (x:xs)
+    | mod n x == 0 = x : divisores n xs
+    | otherwise = divisores n xs
