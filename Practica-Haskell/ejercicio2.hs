@@ -52,3 +52,7 @@ repetirLetra n x
     | n >= 1 = x : repetirLetra (n-1) x
     | n < 1 = []
 
+-- e) euler :: Int → Int, tal que euler n es la suma de todos los m ́ultiplos de 3 o 5 menores que n.
+-- Por ejemplo, euler 10 = 23. Puedes usar sin definir la función sum, que suma los elementos de una lista.
+
+
