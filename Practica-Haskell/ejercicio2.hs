@@ -35,7 +35,8 @@ divisores n (x:xs)
 -- d) eco, que devuelve la cadena obtenida a partir de la cadena xs repitiendo cada elemento tantas veces como
 -- indica su posición. Por ejemplo: eco "hola" = "hoolllaaaa"
 
---eco :: [Char] -> [Char]
+eco :: [Char] -> [Char]
+eco xs = [ c | (x, n) <- myzip xs [1..], c <- repetirLetra n x]
 
 --func. auxiliar
 myzip :: [a] -> [b] -> [(a, b)]
@@ -44,4 +45,10 @@ myzip _ [] = []
 myzip [] _ = []
 myzip (x:xs) (z:zs) = (x,z) : myzip xs zs
 
+-- func. auxiliar
+repetirLetra :: Int -> Char -> [Char] -- repite el carácter x tantas veces como indique n
+repetirLetra 0 x = []
+repetirLetra n x
+    | n >= 1 = x : repetirLetra (n-1) x
+    | n < 1 = []
 
