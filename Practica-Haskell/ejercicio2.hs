@@ -18,7 +18,8 @@ abundantes :: [Integer]
 abundantes = [n | n <- [1..], n < sum (divisores n [1..n-1])]
 
 -- 'n <- [1..]', genera el n natural
--- 'n < sum (divisores n [1..n-1])', evalúa la condición. Voy de [1..n-1] porque es el rango del número
+-- 'n < sum (divisores n [1..n-1])', evalúa la condición. Voy de [1..n-1] porque es el rango de los 
+-- divisores propios del número.
 -- los sumo con 'sum'
 
 -- n < (sum divisores n)
@@ -30,3 +31,17 @@ divisores n [] = []
 divisores n (x:xs)
     | mod n x == 0 = x : divisores n xs
     | otherwise = divisores n xs
+
+-- d) eco, que devuelve la cadena obtenida a partir de la cadena xs repitiendo cada elemento tantas veces como
+-- indica su posición. Por ejemplo: eco "hola" = "hoolllaaaa"
+
+--eco :: [Char] -> [Char]
+
+--func. auxiliar
+myzip :: [a] -> [b] -> [(a, b)]
+myzip [] [] = []
+myzip _ [] = []
+myzip [] _ = []
+myzip (x:xs) (z:zs) = (x,z) : myzip xs zs
+
+
