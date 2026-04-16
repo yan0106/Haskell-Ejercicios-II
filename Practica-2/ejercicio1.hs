@@ -1,4 +1,3 @@
-import System.Win32 (COORD(xPos))
 {- 1. El modelo de color RGB es un modelo aditivo que tiene al rojo, verde y azul como colores
 primarios. Cualquier otro color se expresa en términos de las proporciones de estos tres colores 
 que es necesario combinar en forma aditiva para obtenerlo. Dichas proporciones caracterizan a cada
