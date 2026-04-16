@@ -57,3 +57,17 @@ repetirLetra n x
 
 euler :: Int -> Int
 euler n = sum [ x | x <- [1..n-1], mod x 3 == 0 || mod x 5 == 0]
+
+-- f) expandir :: [Int] -> [Int], que reemplace en una lista de números positivos cada número n por n copias
+-- de sí mismo:
+-- Ejemplo: expandir [3,4,2] = [3,3,3,4,4,4,4,2,2]
+
+expandir :: [Int] -> [Int]
+expandir lista = [ v | x <- lista, v <- copiarNumero x x]
+
+-- func. auxiliar
+copiarNumero :: Int -> Int -> [Int]
+copiarNumero 0 x = []
+copiarNumero n x
+    | n >= 1 = x : copiarNumero (n-1) x
+    | n < 1 = []
