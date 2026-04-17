@@ -26,4 +26,27 @@ fa1 f b = True
 fa2 :: (Int -> Int) -> (Bool -> Bool)
 fa2 f b = b
 
+-- b) Bool -> (Int -> Bool)
 
+fb1 :: Bool -> (Int -> Bool)
+fb1 b = esMayor5
+
+-- func. auxiliar:
+esMayor5 :: Int -> Bool
+esMayor5 n 
+    | n > 5 = True
+    | otherwise = False
+
+fb2 :: Bool -> (Int -> Bool)
+fb2 b = if b then esPar else esImpar
+
+{- si b es True, entrego una f que recibe un Int y devuelve un Bool (esPar), si b es False, entrego otra
+herramienta (esImpar) que también recibe un Int y devuelve un Bool -}
+
+-- func. auxiliar:
+esPar :: Int -> Bool
+esPar n = mod n 2 == 0
+
+-- func. auxiliar:
+esImpar :: Int -> Bool
+esImpar n = mod n 2 /= 0
