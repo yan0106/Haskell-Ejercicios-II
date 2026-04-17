@@ -50,3 +50,15 @@ esPar n = mod n 2 == 0
 -- func. auxiliar:
 esImpar :: Int -> Bool
 esImpar n = mod n 2 /= 0
+
+-- c) Char -> Char
+
+fc1 :: Char -> Char
+fc1 x = x
+
+fc2 :: Char -> Char
+fc2 x
+    | x == 'a' = 's'
+    | otherwise = 'n'
+
+-- d) 
