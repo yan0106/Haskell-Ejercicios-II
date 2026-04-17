@@ -61,4 +61,16 @@ fc2 x
     | x == 'a' = 's'
     | otherwise = 'n'
 
--- d) 
+-- d) Int -> (Int -> Bool) -> [Int]
+
+fd1 :: Int -> (Int -> Bool) -> [Int]
+fd1 n f = [n]
+
+fd2 :: Int -> (Int -> Bool) -> [Int]
+fd2 n f = if f n then [n] else []
+
+{- si la f de (n) es True, devuelve el valor de n en una lista, y sino devuelve lista vacía -}
+
+-- func. auxiliar (para probar en consola):
+esMenor9 :: Int -> Bool
+esMenor9 n = n < 9
