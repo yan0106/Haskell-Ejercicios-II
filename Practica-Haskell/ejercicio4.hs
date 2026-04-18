@@ -70,3 +70,14 @@ foo6 :: [b] -> (a->[b]) -> a -> [b]
 
 foo7 :: [[t]] -> ([[t]] -> Bool) -> [t]
 
+-- h) foo8 a b = if b a then a else []
+
+{- Inferencia:
+1. a :: [t]
+2. b :: ([t]->Bool)
+3. resultado if: [t]
+4. resultado else: [t]
+-}
+
+foo8 :: [t] -> ([t] -> Bool) -> [t]
+
