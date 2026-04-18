@@ -17,3 +17,15 @@ foo2 :: (b -> c) -> (a -> b) -> a -> c  -- (firma: de afuera hacia adentro)
 3. x :: b -> c (función)
 
 -}
+
+-- c) foo3 x y z = x y z 
+
+{- Inferencia:
+
+1. y :: a
+2. z :: b
+3. x :: (a->b->c)
+
+-}
+
+foo3 :: (a->b->c) -> a -> b -> c
