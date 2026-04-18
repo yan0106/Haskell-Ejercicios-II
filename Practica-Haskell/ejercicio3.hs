@@ -79,3 +79,16 @@ esMenor9 n = n < 9
 
 fe1 :: [a] -> (a -> [b]) -> [b]
 fe1 xs f = [v | x <- xs, v <- (f x)]
+
+fe2 :: [a] -> (a -> [b]) -> [b]
+fe2 [] f = []
+fe2 (x:xs) f = f x  -- tomo el primero, le aplico f y devuelvo esa lista
+
+{- con recursión:
+
+fe2 [] f = []
+fe2 (x:xs) f = f x ++ fe2 xs f 
+
+-}
+
+-- f) [[a]] -> (a -> Bool) -> [a]
