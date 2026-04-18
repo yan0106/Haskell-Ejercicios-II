@@ -58,3 +58,15 @@ foo5 :: a -> (b -> [a]) -> b -> [a]
 -}
 
 foo6 :: [b] -> (a->[b]) -> a -> [b]
+
+-- g) foo7 a b = if b a then head a else []
+
+{- Inferencia:
+1. a :: [[t]] -- el nombre del tipo tiene que ser distinto a la variable
+2. b :: ([[t]] -> Bool)
+3. resultado if: [t]
+4. resultado else: [t]
+-}
+
+foo7 :: [[t]] -> ([[t]] -> Bool) -> [t]
+
