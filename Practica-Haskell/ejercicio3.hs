@@ -118,3 +118,12 @@ fg1 (x, _, _) = True
 
 fg2 :: (a, b, c) -> Bool
 fg2 (x, y, z) = False
+
+-- h) (a,b,c) -> Int -> c
+
+fh1 :: (a,b,c) -> Int -> c
+fh1 (x,z,y) n = y
+
+fh2 :: (a,b,c) -> Int -> c
+fh2 (_,_,y) _ = y  -- misma idea, con _ para ignorarlo
+
