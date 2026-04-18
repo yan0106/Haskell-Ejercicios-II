@@ -111,3 +111,10 @@ filtrar (x:xs) p
     | p x = x : filtrar xs p
     | otherwise = filtrar xs p
 
+-- g) (a,b,c) -> Bool
+
+fg1 :: (a, b, c) -> Bool
+fg1 (x, _, _) = True
+
+fg2 :: (a, b, c) -> Bool
+fg2 (x, y, z) = False
