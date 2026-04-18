@@ -47,3 +47,14 @@ foo4 :: (a->b) -> a -> [b] -> [b]
 -}
 
 foo5 :: a -> (b -> [a]) -> b -> [a]
+
+-- f) foo6 x y z = x ++ y z
+
+{- Inferencia:
+1. y :: (a->[b])
+2. z :: a
+3. x :: [b]
+4. resultado: [b]
+-}
+
+foo6 :: [b] -> (a->[b]) -> a -> [b]
