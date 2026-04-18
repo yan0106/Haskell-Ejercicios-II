@@ -74,3 +74,8 @@ fd2 n f = if f n then [n] else []
 -- func. auxiliar (para probar en consola):
 esMenor9 :: Int -> Bool
 esMenor9 n = n < 9
+
+-- e) [a] -> (a -> [b]) -> [b]
+
+fe1 :: [a] -> (a -> [b]) -> [b]
+fe1 xs f = [v | x <- xs, v <- (f x)]
