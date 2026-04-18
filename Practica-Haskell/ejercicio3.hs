@@ -92,3 +92,22 @@ fe2 (x:xs) f = f x ++ fe2 xs f
 -}
 
 -- f) [[a]] -> (a -> Bool) -> [a]
+
+ff1 :: [[a]] -> (a -> Bool) -> [a]
+ff1 xss p = [x | xs <- xss, x <- xs, p x]
+
+ff2 :: [[a]] -> (a -> Bool) -> [a]
+ff2 xss p = filtrar (aplanar xss) p
+
+-- func. aux
+aplanar :: [[a]] -> [a]
+aplanar [] = []
+aplanar (xs:xss) = xs ++ aplanar (xss)
+
+-- func. aux.
+filtrar :: [a] -> (a -> Bool) -> [a]
+filtrar [] p = []
+filtrar (x:xs) p 
+    | p x = x : filtrar xs p
+    | otherwise = filtrar xs p
+
