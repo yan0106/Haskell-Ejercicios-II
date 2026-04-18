@@ -127,3 +127,13 @@ fh1 (x,z,y) n = y
 fh2 :: (a,b,c) -> Int -> c
 fh2 (_,_,y) _ = y  -- misma idea, con _ para ignorarlo
 
+-- i) (a,a,a) -> Int -> a
+
+fi1 :: (a,a,a) -> Int -> a
+fi1 (x,y,z) n
+    | n == 1 = x
+    | n == 2 = y
+    | otherwise = z
+
+fi2 :: (a,a,a) -> Int -> a
+fi2 (x,y,z) n = if n <= 3 then x else z
