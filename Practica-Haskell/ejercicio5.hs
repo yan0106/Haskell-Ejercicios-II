@@ -48,6 +48,7 @@ semilla :: ([], [])
 
 -- d) pair2List ::(a, [b]) -> [(a, b)] que dado un par formado por un valor x y una lista xs convierta
 -- a la lista xs en una lista de pares, formada con los elementos de xs y x.
+-- Ej. pair2List (x ; [y1 ; y2 ; y3 ]) = [(x ; y1 ); (x ; y2 ); (x ; y3 )]
 
 pair2List :: (a, [b]) -> [(a, b)]
 pair2List (x, ys) = foldr (\y acc -> (x, y) : acc) [] ys
