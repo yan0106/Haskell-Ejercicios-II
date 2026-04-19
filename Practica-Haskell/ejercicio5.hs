@@ -61,4 +61,22 @@ pair2List (x, ys) = foldr (\y acc -> (x, y) : acc) [] ys
 -- pares de naturales que representan a dos segmentos de la recta, devuelva el segmento cuya
 -- longitud sea máxima.
 -- Ej. maxL (1, 2) (0, 7) = (0, 7)
- 
+
+-- func. auxiliar:
+maxL :: (Int, Int) -> (Int, Int) -> (Int, Int)
+maxL (x, y) (v, z)
+    | (y - x) > (z - v) = (x, y)
+    | otherwise = (v, z)
+-- Nota: la longitud de un segmento (a,b) es b - a
+
+maxSec :: [(Int, Int)] -> (Int, Int)
+maxSec (x:xs) = foldr maxL x xs
+
+-- se usa x como semilla porque se necesita una tupla (uso la primera tupla)
+-- foldr le pasa las dos tuplas a maxL la inicial x y el acc
+
+-- con lambda:
+maxSec2 :: [(Int, Int)] -> (Int, Int)
+maxSec2 (x:xs) = foldr (\seg acc -> maxL seg acc) x xs
+-- si la lambda solo recibe los argumentos y se los pasa directamente a una función sin modificarlos,
+-- (sin agregar lógica), se puede reemplazar la lambda por esa función directamente (como el primer caso)
