@@ -39,3 +39,16 @@ filter f xs = foldr (\x acc -> if f x then x : acc else acc) [] xs
 
 unzip :: [(a, b)] -> ([a],[b])
 unzip xs = foldr (\(x, y) (as, bs) -> (x:as, y:bs)) ([], []) xs
+
+{- Notas:
+x :: (a, b)
+acc :: ([a], [b])
+semilla :: ([], [])
+-}
+
+-- d) pair2List ::(a, [b]) -> [(a, b)] que dado un par formado por un valor x y una lista xs convierta
+-- a la lista xs en una lista de pares, formada con los elementos de xs y x.
+
+pair2List :: (a, [b]) -> [(a, b)]
+pair2List (x, ys) = foldr (\y acc -> (x, y) : acc) [] ys
+
