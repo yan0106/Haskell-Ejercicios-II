@@ -54,7 +54,7 @@ foo5 :: a -> (b -> [a]) -> b -> [a]
 1. y :: (a->[b])
 2. z :: a
 3. x :: [b]
-4. resultado: [b]
+4. resultado:: [b]
 -}
 
 foo6 :: [b] -> (a->[b]) -> a -> [b]
@@ -64,8 +64,8 @@ foo6 :: [b] -> (a->[b]) -> a -> [b]
 {- Inferencia:
 1. a :: [[t]] -- el nombre del tipo tiene que ser distinto a la variable
 2. b :: ([[t]] -> Bool)
-3. resultado if: [t]
-4. resultado else: [t]
+3. resultado if:: [t]
+4. resultado else:: [t]
 -}
 
 foo7 :: [[t]] -> ([[t]] -> Bool) -> [t]
@@ -75,9 +75,30 @@ foo7 :: [[t]] -> ([[t]] -> Bool) -> [t]
 {- Inferencia:
 1. a :: [t]
 2. b :: ([t]->Bool)
-3. resultado if: [t]
-4. resultado else: [t]
+3. resultado if:: [t]
+4. resultado else:: [t]
 -}
 
 foo8 :: [t] -> ([t] -> Bool) -> [t]
 
+-- i) foo9 a b = if b a then head (:a) else (:[])
+
+{- Inferencia:
+1. a :: [t]
+2. b :: ([t] -> Bool)
+3. resultado then:: t -> [t]
+4. resultado else:: t -> [t]
+-}
+
+foo9 :: [t] -> ([t] -> Bool) -> (t -> [t])
+
+{- Inferencia2:
+1. a :: t
+2. b :: (t -> Bool)
+3. resultado then:: [t] -> [t]
+4. resultado else:: [t] -> [t]
+
+foo9 :: t -> (t -> Bool) -> ([t] -> [t])
+
+VER CUÁL ES CORRECTA
+-}
