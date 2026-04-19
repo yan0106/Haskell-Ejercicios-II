@@ -8,12 +8,12 @@ componente a componente entre dos colores.-}
 
 type Color = (Int, Int, Int) -- 0 -> 255 (256) 2^.. ?
 
-data Color2 = C (red::Int, green::Int, blue::Int) -- record
+data Color2 = C { red :: Int, green :: Int, blue :: Int } -- record, con llaves
 
 data Color3 = Negro 
             | Blanco 
             | Gris Int 
-            | C Int Int Int deriving Show
+            | Color Int Int Int deriving Show
 
 mezclar :: Color -> Color -> Color
 mezclar (r1,g1,b1) (r2,g2,b2) = (div (r1+r2) 2, div (g1+g2) 2, div (b1+b2) 2)
