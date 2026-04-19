@@ -32,3 +32,10 @@ filter :: (a -> Bool) -> [a] -> [a]
 filter f xs = foldr (\x acc -> if f x then x : acc else acc) [] xs 
 -- la semilla y lo que devuelve la función anónima deben ser del mismo tipo que el valor
 -- que se espera obtener (en este caso, una lista [a])
+
+-- c) unzip :: [(a, b)] -> ([a],[b]), que dada una lista de tuplas xs retorna una tupla de listas donde
+-- cada una corresponde a los primeros y segundos elementos de los pares respectivamente.
+-- Ej. unzip [('a', 1), ('z', 7), ('h', 9)] = ("azh", [1, 7, 9])
+
+unzip :: [(a, b)] -> ([a],[b])
+unzip xs = foldr (\(x, y) (as, bs) -> (x:as, y:bs)) ([], []) xs
