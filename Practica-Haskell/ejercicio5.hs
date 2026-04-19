@@ -53,3 +53,12 @@ semilla :: ([], [])
 pair2List :: (a, [b]) -> [(a, b)]
 pair2List (x, ys) = foldr (\y acc -> (x, y) : acc) [] ys
 
+-- e) maxSec :: [(Int, Int)] -> (Int, Int), que dada una lista de pares de naturales que represente a
+-- una lista de segmentos de la recta, calcule el segmento más largo de la misma.
+-- Ej. maxSec [(1, 2), (0, 7), (4, 6)] = (0, 7)
+
+-- Puede definir una función auxiliar maxL :: (Int, Int) -> (Int, Int) -> (Int, Int), que dados dos
+-- pares de naturales que representan a dos segmentos de la recta, devuelva el segmento cuya
+-- longitud sea máxima.
+-- Ej. maxL (1, 2) (0, 7) = (0, 7)
+ 
