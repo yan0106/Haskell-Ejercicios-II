@@ -22,7 +22,8 @@ fa1 f b = True
 -}
 
 fa2 :: (Int -> Int) -> (Bool -> Bool)
-fa2 f b = if (f 10 < 50) then b else False
+fa2 f b = (f 0 /= 0) && b
+-- El resultado es True si (f 0) no es cero Y si b es True
 
 -- b) Bool -> (Int -> Bool)
 
