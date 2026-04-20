@@ -2,11 +2,9 @@
 -- a) (Int -> Int) -> (Bool -> Bool)
 
 fa1 :: (Int -> Int) -> (Bool -> Bool)
-fa1 f = \b -> True
+fa1 f b = if (f 10 > 0) then b else False
 
-{- fa1, es una función que recibe una función 'f' que trabaja con enteros y devuelve otra función (anónima, func. aux.)
-que recibe un Bool 'b' y siempre devuelve True. 
-
+{-
 Otra forma:
 
 fa1 :: (Int -> Int) -> (Bool -> Bool)
@@ -24,7 +22,7 @@ fa1 f b = True
 -}
 
 fa2 :: (Int -> Int) -> (Bool -> Bool)
-fa2 f b = b
+fa2 f b = if (f 10 < 50) then b else False
 
 -- b) Bool -> (Int -> Bool)
 
@@ -82,14 +80,7 @@ fe1 xs f = [v | x <- xs, v <- (f x)]
 
 fe2 :: [a] -> (a -> [b]) -> [b]
 fe2 [] f = []
-fe2 (x:xs) f = f x  -- tomo el primero, le aplico f y devuelvo esa lista
-
-{- con recursión:
-
-fe2 [] f = []
-fe2 (x:xs) f = f x ++ fe2 xs f 
-
--}
+fe2 (x:xs) f = f x ++ fe2 xs f
 
 -- f) [[a]] -> (a -> Bool) -> [a]
 
